@@ -1,0 +1,24 @@
+<%- include("partials/header.ejs") -%>
+
+<div class="mainContent">
+    <h1 class="heading">Compose.</h1>
+    <p class="">
+        This is your creative space, where you can bring your thoughts to life and unleash your inner storyteller. Here, you have the freedom to pour your heart and soul onto the digital canvas, crafting beautifully written entries that capture the essence of your experiences.        
+    </p>
+    <form action="/compose" method="post" class="compose">
+        <div class="title">
+            <label for="composeTitle">Title</label>
+            <input type="text" name="postTitle" id="composeTitle" placeholder="Summarize your thoughts in a few words">
+        </div>
+
+        <div class="content">
+            <label for="composeContent">Content</label>
+            <textarea name="postContent" id="composeContent" cols="30" rows="10" placeholder="Drop your thoughts here..."></textarea>
+        </div>
+        <div class="buttonHolder">
+            <button>Publish</button>
+        </div>
+    </form>
+</div>
+
+<%- include("partials/footer.ejs") -%>
