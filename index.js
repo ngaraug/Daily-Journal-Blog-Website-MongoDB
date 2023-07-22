@@ -86,7 +86,6 @@ app.get('/posts/:postId', (req, res)=>{
 // Add a post
 app.post('/compose', (req, res)=>{
     const truncate = req.body.postContent.substring(0,150)
-
     ////Old method to add a post
     // const post = {
     //     title : req.body.postTitle,
@@ -104,6 +103,16 @@ app.post('/compose', (req, res)=>{
     newPost.save().then(()=>{
         console.log("post added to DB")
         res.redirect("/")
+    })
+    
+})
+
+//Delete a post
+app.post('/delete', (req, res)=>{
+    // console.log(req.body.idOfPost)
+    Post.findByIdAndRemove({_id: req.body.idOfPost}).then(()=>{
+        console.log("Post removed")
+        res.redirect('/')
     })
     
 })

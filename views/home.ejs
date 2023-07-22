@@ -18,14 +18,17 @@
         <% } else{%>
         
             <% for(post in posts){ %>
-                <div class="post">
-                    <h2 class="postTitle">
-                        <%= posts[post].title %>
-                    </h2>
-                    <p class="postContent">
-                        <%= posts[post].truncatedContent %>...  <a href="/posts/<%= posts[post].title %> ">read more?</a>
-                    </p>
-                </div>
+                <form class="post" action="/delete" method="post" >
+                    <div>
+                        <h2 class="postTitle">
+                            <%= posts[post].title %>
+                        </h2>
+                        <p class="postContent">
+                            <%= posts[post].truncatedContent %>...  <a href="/posts/<%= posts[post].title %> ">read more?</a>
+                        </p>
+                    </div>
+                        <button title="Delete this post?" name="idOfPost" value="<%= posts[post]._id %>">✖</button>
+                </form>
             <% } %>
             <a href="/compose" class="anotherPostLink">Add another post?</a>
         <% } %>

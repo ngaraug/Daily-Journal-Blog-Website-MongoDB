@@ -112,12 +112,30 @@ button:hover{
     background-color: rgb(248, 252, 255);
     padding-left: 1vw;
     border-left: 1px solid rgb(119, 187, 250);
+    
+    display: flex;
+    justify-content: space-between;
 }
-.post > p{
+.post > div >p{
     font-size: 1rem;
 }
-.post > h2{
+.post > div > h2{
     font-size: 1.7rem;
+}
+.post > button{
+    background-color: red;
+    opacity: 0;
+    color: white;
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s linear;
+}
+.post > button:hover{
+    opacity: 1;  
 }
 .subHeading{
     font-size: 2rem;
