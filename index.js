@@ -1,6 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
-import ejs, { render } from 'ejs';
+import ejs from 'ejs';
 import _ from 'lodash';
 import mongoose from "mongoose";
 
@@ -12,10 +12,11 @@ const __dirname = dirname(__filename);
 
 const app = express()
 
-app.use(express.static(__dirname + '/public'))
+app.use(bodyParser.urlencoded({extended:true}))
 app.set('views', __dirname + '/views');     //Added new
 app.set('view engine', 'ejs')
-app.use(bodyParser.urlencoded({extended:true}))
+app.use(express.static(__dirname + '/public'))
+
 
 // connection to DB
 const dbName = 'blogDB'
@@ -50,7 +51,7 @@ Post.find({}).then((docs)=>{
     posts = docs
 })
 
-app.get('/', (req, res)=>{
+app.get("/", (req, res)=>{
     Post.find({}).then((docs)=>{
         posts = docs
         res.render('home', {homeStartingContent: homeStartingContent, posts:posts})
