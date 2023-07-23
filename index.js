@@ -13,12 +13,14 @@ const __dirname = dirname(__filename);
 const app = express()
 
 app.use(express.static(__dirname + '/public'))
+app.set('views', __dirname + '/views');     //Added new
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({extended:true}))
 
 // connection to DB
 const dbName = 'blogDB'
-const uri = "mongodb://0.0.0.0:27017/" + dbName
+// const uri = "mongodb://0.0.0.0:27017/" + dbName
+const uri = 'mongodb+srv://ngaraug:GauMongoDB15@cluster0.drr9nzg.mongodb.net/' + dbName
 mongoose.connect(uri).then(()=>{
     console.log("Connected successfully to " + dbName)
 })
