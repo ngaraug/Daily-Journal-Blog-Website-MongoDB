@@ -52,11 +52,10 @@ Post.find({}).then((docs)=>{
 })
 
 app.get("/", (req, res)=>{
-    // Post.find({}).then((docs)=>{
-    //     posts = docs
-    //     res.render('home', {homeStartingContent: homeStartingContent, posts:posts})
-    // })
-    res.send({msg: "Running till here"})
+    Post.find({}).then((docs)=>{
+        posts = docs
+        res.render('home', {homeStartingContent: homeStartingContent, posts:posts})
+    })
 })
 
 app.get('/about', (req, res)=>{
